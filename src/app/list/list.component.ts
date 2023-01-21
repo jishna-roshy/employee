@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  uname:any;
+
+  list:any;
+  valueFromStorage: any;
+
+  constructor(private ds:DataService) { 
+this.ds
+
+  }
 
   ngOnInit(): void {
+    this.valueFromStorage = localStorage.getItem('data');
+   
+    this.valueFromStorage=JSON.parse(this.valueFromStorage);
+     console.log(this.valueFromStorage[0]);
   }
 
 }

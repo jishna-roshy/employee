@@ -25,7 +25,6 @@ a{color:inherit;text-decoration:none}
 	padding:90px 70px 50px 70px;
 	background:rgba(40,57,101,.9);
 }
-.login-html .sign-in-htm,
 .login-html .sign-up-htm{
 	top:0;
 	left:0;
@@ -72,7 +71,7 @@ a{color:inherit;text-decoration:none}
 .login-form .group .input,
 .login-form .group .button{
 	width:100%;
-	color:#fff;
+	color:rgb(199, 197, 197);
 	display:block;
 }
 .login-form .group .input,
@@ -80,12 +79,12 @@ a{color:inherit;text-decoration:none}
 	border:none;
 	padding:15px 20px;
 	border-radius:25px;
-	background:rgba(255,255,255,.1);
+	background:rgba(14, 13, 13, 0.1);
 }
 
 
 .login-form .group .label{
-	color:#aaa;
+	color:rgb(8, 8, 8);
 	font-size:12px;
 }
 .login-form .group .button{

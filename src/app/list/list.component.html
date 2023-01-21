@@ -1,1 +1,28 @@
-<h2></h2>
+
+<body>
+
+
+<h1 style="text-align:center;color:black">Employee List</h1>
+
+<table class="table align-middle mb-0 bg-white p-5">
+    <thead class="bg-light">
+      <tr>
+        <th>Username</th>
+        <th>Address</th>
+        <th>Role</th>
+        <th>Phone Nunber</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of valueFromStorage">
+        <td>{{t.uname}}</td>
+        <td>{{t.address}}</td>
+        <td>{{t.role}}</td>
+        <td>{{t.phone}}</td>
+        <td>{{t.gender}}</td>
+      </tr>
+       
+    </tbody>
+  </table>
+</body>

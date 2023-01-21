@@ -1,27 +1,30 @@
 <div class="login-wrap">
 	<div class="login-html">
-		<input id="" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-form">
+		<input id="tab-2" type="radio" name="tab" class="sign-up " ><label for="tab-2" class="tab" >Sign Up</label>
+		<form [formGroup]="empForm" class="login-form">
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input #uname id="user" name="uname" type="text" class="input">
+					<input formControlName="uname" id="user" name="uname" type="text" class="input">
 				</div>
+        <div *ngIf="this.empForm.get('uname')?.errors&&this.empForm.get('uname')?.touched"
+					style="color: red;">invalid user</div>
 			
                 <div class="group mb-4">
                     <label class="label" for="form3Example90">Address</label>
-                    <input #address type="text"  name="address" class="input"  />
+                    <input formControlName="address" type="text"  name="address" class="input"  />
                     
                   </div>
+                  <div *ngIf="this.empForm.get('address')?.errors&&this.empForm.get('address')?.touched"
+					style="color: red;">invalid address</div>
 
                 
                   
                   
                <div class="group "> 
-                <label #role class="label"  for="state">Role</label>
+                <label formControlName="role" class="label"  for="state">Role</label>
               
-                    <select class="input" name="status" >
+                    <select (change)="onSelectionChange($event)" class="input" name="status" >
                         <option  value="single"></option>
                         <option  value="admin">Admin</option>
                         <option value="Manager">Manager</option>
@@ -32,29 +35,32 @@
                  </div>
             <div   class="group mb-4"> 
                 <label class="label">phone number</label>
-                <input #phone type="text"  name="phone"  class="input" />
+                 
+                <input type="text" formControlName="phone" class="input" minlength=10 maxlength=10>
                
             </div>
+            <div *ngIf="this.empForm.get('phone')?.errors&&this.empForm.get('phone')?.touched"
+					style="color: red;">invalid number</div>
 
 
-              <div class="group mb-4 py-2" f >
+              <div class="group mb-4 py-2"  >
   
                 <label class="label" for="form3Example90">Gender</label>
 
                 <div class="form-check form-check-inline mb-0 me-4">
-                  <input #gender class="input"  type="radio" name="gender" id="femaleGender" 
+                  <input formControlName="gender" class="form-check-input"  type="radio" name="gender" id="femaleGender" 
                     value="Female" />
                   <label class="form-check-label"  for="femaleGender" >Female</label>
             
                 </div>
                 <div class="form-check form-check-inline mb-0 me-4">
-                    <input  class="form-check-input" type="radio" name="gender" id="maleGender" 
+                    <input  formControlName="gender"class="form-check-input" type="radio" name="gender" id="maleGender" 
                       value="Male" />
                     <label class="form-check-label" for="maleGender">Male</label>
                   
                   </div>
                   <div class="form-check form-check-inline mb-0">
-                    <input class="form-check-input" type="radio" name="gender" id="otherGender" 
+                    <input formControlName="gender"class="form-check-input" type="radio" name="gender" id="otherGender" 
                       value="Other" />
               
                     <label class="form-check-label" for="otherGender">Other</label>
@@ -63,12 +69,12 @@
            </div>
 
 				
-				<div class="group">
-					<input type="submit" (click)="saveData()" value="Submit">
-				</div>
 				
+           <div class="group">
+           <button  (click)="saveData()" type="submit" class="button" value="Sign In">submit</button>
+         </div>
 				
 			</div>
 			
-	</div>
+	</form>
 </div>
